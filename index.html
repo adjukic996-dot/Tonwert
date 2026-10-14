@@ -43,7 +43,7 @@
 <main id="inhalt">
 <section class="aufmacher">
   <div class="aufmacher__grund">
-    <img class="aufmacher__bild" src="/Tonwert/bilder/aufmacher-2400.webp" srcset="/Tonwert/bilder/aufmacher-1200.webp 1200w, /Tonwert/bilder/aufmacher-1800.webp 1800w, /Tonwert/bilder/aufmacher-2400.webp 2400w" sizes="100vw" alt="Zwei Personen gehen durch einen Lagergang" loading="eager" decoding="async">
+    <img class="aufmacher__bild" src="/Tonwert/bilder/aufmacher-2400.webp" srcset="/Tonwert/bilder/aufmacher-1200.webp 1200w, /Tonwert/bilder/aufmacher-1800.webp 1800w, /Tonwert/bilder/aufmacher-2400.webp 2400w" sizes="100vw" alt="Mann im Anzug an einem Schreibtisch, telefoniert und macht Notizen" loading="eager" decoding="async">
   </div>
   <div class="aufmacher__dunkel" aria-hidden="true"></div>
   <span class="aufmacher__schleier" aria-hidden="true"></span>
@@ -141,7 +141,67 @@
 <section class="abschnitt abschnitt--gross einzugsfeld">
   <div class="huelle stapeln stapeln--weit">
     <h2 class="t-heading einzug einzug--titel">Woran Sie es merken.</h2>
-    <ul class="gitter gitter--3" style="list-style:none;margin:0;padding:0"><li class="karte karte--nebel einzug einzug--reihe s1"><h3 class="t-subheading">Jede Zahl hat eine Quelle</h3><p class="t-caption gedaempft">Neben jeder Position steht, aus welchem Beleg und welchem Faktor sie entstanden ist.</p></li><li class="karte karte--nebel einzug einzug--reihe s2"><h3 class="t-subheading">Kein Tabellenblatt</h3><p class="t-caption gedaempft">Die Bilanz liegt an einer Stelle, nicht in vierzehn Dateiversionen.</p></li><li class="karte karte--nebel einzug einzug--reihe s3"><h3 class="t-subheading">Vergleich zum Vorjahr</h3><p class="t-caption gedaempft">Ab der zweiten Bilanz sehen Sie, was sich verändert hat und woran es lag.</p></li><li class="karte karte--nebel einzug einzug--reihe s4"><h3 class="t-subheading">Scope 3 schrittweise</h3><p class="t-caption gedaempft">Die Lieferkette lässt sich nach und nach aufnehmen, statt alles auf einmal zu verlangen.</p></li><li class="karte karte--nebel einzug einzug--reihe s5"><h3 class="t-subheading">Antworten statt Berichte</h3><p class="t-caption gedaempft">Fragebögen grosser Kunden lassen sich direkt aus der Bilanz beantworten.</p></li><li class="karte karte--nebel einzug einzug--reihe s6"><h3 class="t-subheading">Export ohne Bindung</h3><p class="t-caption gedaempft">Tabelle, PDF und Rohdaten. Sie können jederzeit ohne uns weiterarbeiten.</p></li></ul>
+    <ul class="gitter gitter--3" style="list-style:none;margin:0;padding:0"><li class="karte karte--nebel merkmal klappe einzug einzug--reihe s1">
+        <button class="klappe__kopf" type="button">
+          <span class="merkmal__text">
+            <span class="t-subheading">Jede Zahl hat eine Quelle</span>
+            <span class="t-caption gedaempft">Neben jeder Position steht, aus welchem Beleg und welchem Faktor sie entstanden ist.</span>
+          </span>
+          <span class="merkmal__zeichen" aria-hidden="true"></span>
+        </button>
+        <div class="klappe__koerper"><div class="klappe__innen">
+          <p class="t-caption gedaempft">Öffnen Sie eine Position, und Sie sehen den Beleg, aus dem sie stammt, den verwendeten Emissionsfaktor mit Quelle und Jahr, und wer den Wert zuletzt geändert hat. Das ist der Unterschied zwischen einer Bilanz, die eine Prüfung übersteht, und einer Tabelle, die nach einem halben Jahr niemand mehr erklären kann.</p>
+        </div></div></li><li class="karte karte--nebel merkmal klappe einzug einzug--reihe s2">
+        <button class="klappe__kopf" type="button">
+          <span class="merkmal__text">
+            <span class="t-subheading">Kein Tabellenblatt</span>
+            <span class="t-caption gedaempft">Die Bilanz liegt an einer Stelle, nicht in vierzehn Dateiversionen.</span>
+          </span>
+          <span class="merkmal__zeichen" aria-hidden="true"></span>
+        </button>
+        <div class="klappe__koerper"><div class="klappe__innen">
+          <p class="t-caption gedaempft">Verbrauchsdaten, Faktoren und Ergebnis liegen in einem Stand. Niemand arbeitet versehentlich in einer alten Fassung weiter, und es gibt keine Datei, die per E-Mail herumgereicht wird. Wer etwas ändert, ändert es für alle — nachvollziehbar und umkehrbar.</p>
+        </div></div></li><li class="karte karte--nebel merkmal klappe einzug einzug--reihe s3">
+        <button class="klappe__kopf" type="button">
+          <span class="merkmal__text">
+            <span class="t-subheading">Vergleich zum Vorjahr</span>
+            <span class="t-caption gedaempft">Ab der zweiten Bilanz sehen Sie, was sich verändert hat und woran es lag.</span>
+          </span>
+          <span class="merkmal__zeichen" aria-hidden="true"></span>
+        </button>
+        <div class="klappe__koerper"><div class="klappe__innen">
+          <p class="t-caption gedaempft">Tonwert stellt die Jahre nebeneinander und weist die Abweichung je Kategorie aus. Wichtiger als die Veränderung ist ihre Erklärung: ob der Verbrauch tatsächlich gesunken ist oder nur der Emissionsfaktor sich geändert hat. In der Summe sieht beides gleich aus und bedeutet das Gegenteil.</p>
+        </div></div></li><li class="karte karte--nebel merkmal klappe einzug einzug--reihe s4">
+        <button class="klappe__kopf" type="button">
+          <span class="merkmal__text">
+            <span class="t-subheading">Scope 3 schrittweise</span>
+            <span class="t-caption gedaempft">Die Lieferkette lässt sich nach und nach aufnehmen, statt alles auf einmal zu verlangen.</span>
+          </span>
+          <span class="merkmal__zeichen" aria-hidden="true"></span>
+        </button>
+        <div class="klappe__koerper"><div class="klappe__innen">
+          <p class="t-caption gedaempft">Scope 3 umfasst fünfzehn Kategorien, und bei den meisten Unternehmen liegt dort der grösste Teil der Emissionen. Sie beginnen mit den Kategorien, die sich aus Ihrer Buchhaltung ergeben, und nehmen weitere auf, sobald Daten verfügbar sind. Die Bilanzgrenze wird dabei dokumentiert, damit spätere Jahre vergleichbar bleiben.</p>
+        </div></div></li><li class="karte karte--nebel merkmal klappe einzug einzug--reihe s5">
+        <button class="klappe__kopf" type="button">
+          <span class="merkmal__text">
+            <span class="t-subheading">Antworten statt Berichte</span>
+            <span class="t-caption gedaempft">Fragebögen grosser Kunden lassen sich direkt aus der Bilanz beantworten.</span>
+          </span>
+          <span class="merkmal__zeichen" aria-hidden="true"></span>
+        </button>
+        <div class="klappe__koerper"><div class="klappe__innen">
+          <p class="t-caption gedaempft">Grosse Kunden fragen mit eigenen Bögen ab, selten zweimal im selben Format. Aus einer vorhandenen Bilanz lassen sich diese Felder befüllen, statt die Recherche jedes Mal neu zu beginnen. Was sich nicht beantworten lässt, bleibt sichtbar offen — eine erkennbare Lücke ist belastbarer als eine geschätzte Zahl.</p>
+        </div></div></li><li class="karte karte--nebel merkmal klappe einzug einzug--reihe s6">
+        <button class="klappe__kopf" type="button">
+          <span class="merkmal__text">
+            <span class="t-subheading">Export ohne Bindung</span>
+            <span class="t-caption gedaempft">Tabelle, PDF und Rohdaten. Sie können jederzeit ohne uns weiterarbeiten.</span>
+          </span>
+          <span class="merkmal__zeichen" aria-hidden="true"></span>
+        </button>
+        <div class="klappe__koerper"><div class="klappe__innen">
+          <p class="t-caption gedaempft">Jede Bilanz lässt sich als Tabelle, als PDF und als Rohdatensatz mit allen verwendeten Faktoren ausgeben. Wenn Sie das Werkzeug wechseln, nehmen Sie Ihre Daten vollständig mit. Wir halten Sie über den Nutzen, nicht über das Format.</p>
+        </div></div></li></ul>
   </div>
 </section>
 
@@ -157,10 +217,10 @@
 </section>
 
 <section class="abschnitt abschnitt--gross einzugsfeld">
-  <div class="huelle stapeln stapeln--weit">
+  <div class="huelle huelle--fragen stapeln stapeln--weit">
     <h2 class="t-heading einzug einzug--titel">Häufige Fragen.</h2>
-    <ul class="karte" style="list-style:none;padding:0;gap:0">
-<li class="klappe"><button class="klappe__kopf" type="button"><h3 class="t-subheading">Wie lange dauert die erste Bilanz?</h3><svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="klappe__koerper"><div class="klappe__innen fliess"><p class="gedaempft">Das hängt daran, wie gut Ihre Verbrauchsdaten greifbar sind. Liegen Strom- und Gasabrechnungen digital vor und ist der Fuhrpark erfasst, sind zwei bis drei Wochen realistisch. Der längste Teil ist nie die Rechnung, sondern das Zusammentragen.</p></div></div></li><li class="klappe"><button class="klappe__kopf" type="button"><h3 class="t-subheading">Brauchen wir dafür eine Beratung?</h3><svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="klappe__koerper"><div class="klappe__innen fliess"><p class="gedaempft">Nein. Tonwert ist so gebaut, dass eine Person aus der Buchhaltung oder dem Facility Management damit arbeiten kann. Wenn Sie an einer Stelle nicht weiterkommen, gehen wir sie mit Ihnen durch.</p></div></div></li><li class="klappe"><button class="klappe__kopf" type="button"><h3 class="t-subheading">Was passiert, wenn Daten fehlen?</h3><svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="klappe__koerper"><div class="klappe__innen fliess"><p class="gedaempft">Dann steht das in der Bilanz. Tonwert kennzeichnet jede Position, die geschätzt ist, und nennt die Grundlage der Schätzung. Eine Lücke, die als Lücke erkennbar ist, hält jede Prüfung besser aus als eine Zahl, die niemand belegen kann.</p></div></div></li><li class="klappe"><button class="klappe__kopf" type="button"><h3 class="t-subheading">Können wir den Bericht selbst weiterverarbeiten?</h3><svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="klappe__koerper"><div class="klappe__innen fliess"><p class="gedaempft">Ja. Jede Bilanz lässt sich als Tabelle und als PDF ausgeben, dazu die Rohdaten mit allen verwendeten Faktoren. Sie bleiben unabhängig von uns.</p></div></div></li><li class="klappe"><button class="klappe__kopf" type="button"><h3 class="t-subheading">Wo liegen unsere Daten?</h3><svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="klappe__koerper"><div class="klappe__innen fliess"><p class="gedaempft">In Rechenzentren in Deutschland. Verträge zur Auftragsverarbeitung nach Artikel 28 DSGVO schliessen wir vor der ersten Datenübergabe.</p></div></div></li>
+    <ul class="fragen">
+<li class="klappe frage"><button class="klappe__kopf" type="button"><h3 class="t-subheading">Wie lange dauert die erste Bilanz?</h3><svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="klappe__koerper"><div class="klappe__innen fliess"><p class="gedaempft">Das hängt daran, wie gut Ihre Verbrauchsdaten greifbar sind. Liegen Strom- und Gasabrechnungen digital vor und ist der Fuhrpark erfasst, sind zwei bis drei Wochen realistisch. Der längste Teil ist nie die Rechnung, sondern das Zusammentragen.</p></div></div></li><li class="klappe frage"><button class="klappe__kopf" type="button"><h3 class="t-subheading">Brauchen wir dafür eine Beratung?</h3><svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="klappe__koerper"><div class="klappe__innen fliess"><p class="gedaempft">Nein. Tonwert ist so gebaut, dass eine Person aus der Buchhaltung oder dem Facility Management damit arbeiten kann. Wenn Sie an einer Stelle nicht weiterkommen, gehen wir sie mit Ihnen durch.</p></div></div></li><li class="klappe frage"><button class="klappe__kopf" type="button"><h3 class="t-subheading">Was passiert, wenn Daten fehlen?</h3><svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="klappe__koerper"><div class="klappe__innen fliess"><p class="gedaempft">Dann steht das in der Bilanz. Tonwert kennzeichnet jede Position, die geschätzt ist, und nennt die Grundlage der Schätzung. Eine Lücke, die als Lücke erkennbar ist, hält jede Prüfung besser aus als eine Zahl, die niemand belegen kann.</p></div></div></li><li class="klappe frage"><button class="klappe__kopf" type="button"><h3 class="t-subheading">Können wir den Bericht selbst weiterverarbeiten?</h3><svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="klappe__koerper"><div class="klappe__innen fliess"><p class="gedaempft">Ja. Jede Bilanz lässt sich als Tabelle und als PDF ausgeben, dazu die Rohdaten mit allen verwendeten Faktoren. Sie bleiben unabhängig von uns.</p></div></div></li><li class="klappe frage"><button class="klappe__kopf" type="button"><h3 class="t-subheading">Wo liegen unsere Daten?</h3><svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="klappe__koerper"><div class="klappe__innen fliess"><p class="gedaempft">In Rechenzentren in Deutschland. Verträge zur Auftragsverarbeitung nach Artikel 28 DSGVO schliessen wir vor der ersten Datenübergabe.</p></div></div></li>
     </ul>
   </div>
 </section>

@@ -827,3 +827,92 @@ a,button,.knopf,.reiter{
   transition:transform var(--d-zustand) var(--k-zustand);
 }
 .sprungmarke:focus{ transform:translateY(0) }
+
+
+/* ===========================================================================
+   AUFKLAPPBARE KARTEN UND FRAGEN
+   Beide benutzen dieselbe Mechanik wie die Klappliste (.klappe), damit es
+   genau eine Stelle gibt, die Hoehen faehrt. Unterschiedlich ist nur das
+   Aussehen.
+
+   Das Groesserwerden beim Zeigen ist ein Zustandswechsel — also 300 ms mit
+   der kurzen Kurve, wie alles andere Interaktive auch. Gekapselt in
+   any-hover, damit auf Tastgeraeten kein Zustand haengen bleibt.
+   ========================================================================= */
+
+/* --- Merkmalskarten ("Woran Sie es merken") ----------------------------- */
+.merkmal{
+  padding:0; overflow:hidden; position:relative;
+  border:1px solid transparent;
+  transition:
+    transform    var(--d-zustand) var(--k-zustand),
+    border-color var(--d-zustand) var(--k-zustand),
+    background-color var(--d-zustand) var(--k-zustand);
+}
+.merkmal.klappe{ border-top:1px solid transparent }   /* Trennlinie der Liste aufheben */
+@media(any-hover:hover){
+  .merkmal:hover{ transform:scale(1.03); z-index:2; border-color:var(--rand) }
+}
+.merkmal:focus-within{ z-index:2 }
+.merkmal[data-auf="ja"]{ border-color:var(--violett); background:var(--papier) }
+
+.merkmal .klappe__kopf{
+  padding:var(--kartenpolster); gap:var(--s12);
+  align-items:flex-start; text-align:left;
+}
+.merkmal__text{ display:flex; flex-direction:column; gap:var(--s8) }
+/* Pluszeichen wird zum Kreuz. Gleiche Dauer und Kurve wie der Pfeil. */
+.merkmal__zeichen{
+  flex:0 0 auto; width:1.25rem; height:1.25rem; position:relative; margin-top:.2rem;
+  transition:transform var(--d-pfeil) var(--k-einzug);
+}
+.merkmal__zeichen::before,.merkmal__zeichen::after{
+  content:""; position:absolute; inset:0; margin:auto; background:currentColor;
+}
+.merkmal__zeichen::before{ width:100%; height:1px }
+.merkmal__zeichen::after{ width:1px; height:100% }
+.merkmal[data-auf="ja"] .merkmal__zeichen{ transform:rotate(135deg); color:var(--violett) }
+.merkmal .klappe__innen{ padding:0 var(--kartenpolster) var(--kartenpolster) }
+
+/* --- Fragen (FAQ, Wissen, Preise) --------------------------------------
+   Jede Frage ist eine eigene Karte mit Abstand, nicht mehr eine Zeile in
+   einer geteilten Liste. Erst dadurch kann eine einzelne wachsen, ohne ihre
+   Nachbarn zu ueberdecken. */
+.fragen{
+  list-style:none; margin:0; padding:0;
+  display:flex; flex-direction:column; gap:var(--s12);
+}
+.frage{
+  background:var(--papier); color:var(--tinte);
+  border:1px solid rgba(0,0,0,.12); border-radius:var(--r-gross);
+  overflow:hidden; position:relative;
+  transition:
+    transform        var(--d-zustand) var(--k-zustand),
+    background-color var(--d-zustand) var(--k-zustand),
+    border-color     var(--d-zustand) var(--k-zustand),
+    color            var(--d-zustand) var(--k-zustand);
+}
+.frage.klappe{ border-top:1px solid rgba(0,0,0,.12) }
+@media(any-hover:hover){
+  .frage:hover{ transform:scale(1.015); z-index:2; border-color:var(--rand) }
+}
+.frage:focus-within{ z-index:2 }
+
+/* Geoeffnet wird die Frage violett. Weiss auf #a73df8 misst 4,50:1 — genau
+   deshalb wurde das Violett in Abschnitt 6 abgedunkelt. Der Text bleibt
+   reinweiss; jede Abschwaechung wuerde durchfallen. */
+.frage[data-auf="ja"]{
+  background:var(--violett); border-color:var(--violett); color:var(--papier);
+}
+.frage[data-auf="ja"] .gedaempft{ color:var(--papier) }
+.frage .klappe__kopf{ padding:var(--f32) var(--f32) }
+.frage .klappe__innen{ padding:0 var(--f32) var(--f32); max-width:76ch }
+
+/* Etwas breiter als das uebrige Mass — ausdruecklich gewuenscht.
+   Einzige Stelle der Seite, die ueber 1200px geht. */
+.huelle--fragen{ max-width:1340px }
+
+@media(prefers-reduced-motion:reduce){
+  .merkmal,.frage,.merkmal__zeichen{ transition:none!important }
+  .merkmal:hover,.frage:hover{ transform:none!important }
+}

@@ -52,7 +52,7 @@ def klappe(frage, antwort):
     pfeil = ('<svg class="klappe__pfeil" viewBox="0 0 24 24" fill="none" aria-hidden="true">'
              '<path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="1.5" '
              'stroke-linecap="round" stroke-linejoin="round"/></svg>')
-    return (f'<li class="klappe">'
+    return (f'<li class="klappe frage">'
             f'<button class="klappe__kopf" type="button">'
             f'<h3 class="t-subheading">{e(frage)}</h3>{pfeil}</button>'
             f'<div class="klappe__koerper"><div class="klappe__innen fliess">'
@@ -255,18 +255,52 @@ def start():
     </div>''' for i, (s, t, form, paar, text) in enumerate(reiter))
 
     vorteile = [
-        ("Jede Zahl hat eine Quelle", "Neben jeder Position steht, aus welchem Beleg und welchem Faktor sie entstanden ist."),
-        ("Kein Tabellenblatt", "Die Bilanz liegt an einer Stelle, nicht in vierzehn Dateiversionen."),
-        ("Vergleich zum Vorjahr", "Ab der zweiten Bilanz sehen Sie, was sich verändert hat und woran es lag."),
-        ("Scope 3 schrittweise", "Die Lieferkette lässt sich nach und nach aufnehmen, statt alles auf einmal zu verlangen."),
-        ("Antworten statt Berichte", "Fragebögen grosser Kunden lassen sich direkt aus der Bilanz beantworten."),
-        ("Export ohne Bindung", "Tabelle, PDF und Rohdaten. Sie können jederzeit ohne uns weiterarbeiten."),
+        ("Jede Zahl hat eine Quelle",
+         "Neben jeder Position steht, aus welchem Beleg und welchem Faktor sie entstanden ist.",
+         "Öffnen Sie eine Position, und Sie sehen den Beleg, aus dem sie stammt, den verwendeten "
+         "Emissionsfaktor mit Quelle und Jahr, und wer den Wert zuletzt geändert hat. Das ist der "
+         "Unterschied zwischen einer Bilanz, die eine Prüfung übersteht, und einer Tabelle, die "
+         "nach einem halben Jahr niemand mehr erklären kann."),
+        ("Kein Tabellenblatt",
+         "Die Bilanz liegt an einer Stelle, nicht in vierzehn Dateiversionen.",
+         "Verbrauchsdaten, Faktoren und Ergebnis liegen in einem Stand. Niemand arbeitet "
+         "versehentlich in einer alten Fassung weiter, und es gibt keine Datei, die per E-Mail "
+         "herumgereicht wird. Wer etwas ändert, ändert es für alle — nachvollziehbar und umkehrbar."),
+        ("Vergleich zum Vorjahr",
+         "Ab der zweiten Bilanz sehen Sie, was sich verändert hat und woran es lag.",
+         "Tonwert stellt die Jahre nebeneinander und weist die Abweichung je Kategorie aus. "
+         "Wichtiger als die Veränderung ist ihre Erklärung: ob der Verbrauch tatsächlich gesunken "
+         "ist oder nur der Emissionsfaktor sich geändert hat. In der Summe sieht beides gleich aus "
+         "und bedeutet das Gegenteil."),
+        ("Scope 3 schrittweise",
+         "Die Lieferkette lässt sich nach und nach aufnehmen, statt alles auf einmal zu verlangen.",
+         "Scope 3 umfasst fünfzehn Kategorien, und bei den meisten Unternehmen liegt dort der "
+         "grösste Teil der Emissionen. Sie beginnen mit den Kategorien, die sich aus Ihrer "
+         "Buchhaltung ergeben, und nehmen weitere auf, sobald Daten verfügbar sind. Die "
+         "Bilanzgrenze wird dabei dokumentiert, damit spätere Jahre vergleichbar bleiben."),
+        ("Antworten statt Berichte",
+         "Fragebögen grosser Kunden lassen sich direkt aus der Bilanz beantworten.",
+         "Grosse Kunden fragen mit eigenen Bögen ab, selten zweimal im selben Format. Aus einer "
+         "vorhandenen Bilanz lassen sich diese Felder befüllen, statt die Recherche jedes Mal neu "
+         "zu beginnen. Was sich nicht beantworten lässt, bleibt sichtbar offen — eine erkennbare "
+         "Lücke ist belastbarer als eine geschätzte Zahl."),
+        ("Export ohne Bindung",
+         "Tabelle, PDF und Rohdaten. Sie können jederzeit ohne uns weiterarbeiten.",
+         "Jede Bilanz lässt sich als Tabelle, als PDF und als Rohdatensatz mit allen verwendeten "
+         "Faktoren ausgeben. Wenn Sie das Werkzeug wechseln, nehmen Sie Ihre Daten vollständig "
+         "mit. Wir halten Sie über den Nutzen, nicht über das Format."),
     ]
-    vorteilsliste = "".join(
-        f'<li class="karte karte--nebel einzug einzug--reihe s{i+1}">'
-        f'<h3 class="t-subheading">{e(t)}</h3>'
-        f'<p class="t-caption gedaempft">{e(x)}</p></li>'
-        for i, (t, x) in enumerate(vorteile))
+    vorteilsliste = "".join(f'''<li class="karte karte--nebel merkmal klappe einzug einzug--reihe s{i+1}">
+        <button class="klappe__kopf" type="button">
+          <span class="merkmal__text">
+            <span class="t-subheading">{e(t)}</span>
+            <span class="t-caption gedaempft">{e(k)}</span>
+          </span>
+          <span class="merkmal__zeichen" aria-hidden="true"></span>
+        </button>
+        <div class="klappe__koerper"><div class="klappe__innen">
+          <p class="t-caption gedaempft">{e(lang)}</p>
+        </div></div></li>''' for i, (t, k, lang) in enumerate(vorteile))
 
     begriffe = ["Scope 1", "Scope 2", "Scope 3", "GHG Protocol", "VSME", "CSRD",
                 "Product Carbon Footprint", "Emissionsfaktor", "Bilanzgrenze", "Basisjahr"]
@@ -274,7 +308,7 @@ def start():
 
     return f'''<section class="aufmacher">
   <div class="aufmacher__grund">
-    {bild("aufmacher", [1200, 1800, 2400], "Zwei Personen gehen durch einen Lagergang",
+    {bild("aufmacher", [1200, 1800, 2400], "Mann im Anzug an einem Schreibtisch, telefoniert und macht Notizen",
           klasse="aufmacher__bildrahmen", groessen="100vw", laden="eager", rahmen=False).replace("<img", '<img class="aufmacher__bild"')}
   </div>
   <div class="aufmacher__dunkel" aria-hidden="true"></div>
@@ -353,9 +387,9 @@ def start():
 </section>
 
 <section class="abschnitt abschnitt--gross einzugsfeld">
-  <div class="huelle stapeln stapeln--weit">
+  <div class="huelle huelle--fragen stapeln stapeln--weit">
     <h2 class="t-heading einzug einzug--titel">Häufige Fragen.</h2>
-    <ul class="karte" style="list-style:none;padding:0;gap:0">
+    <ul class="fragen">
 {"".join(klappe(f, a) for f, a in FRAGEN)}
     </ul>
   </div>
@@ -620,7 +654,7 @@ def preise():
 <section class="abschnitt einzugsfeld">
   <div class="huelle stapeln stapeln--weit">
     <h2 class="t-heading einzug einzug--titel">Fragen zum Preis.</h2>
-    <ul class="karte" style="list-style:none;padding:0;gap:0">
+    <ul class="fragen">
 {klappe("Gibt es eine Mindestlaufzeit?", "Zwölf Monate beim Jahresbericht und bei der Lieferkette, weil eine Bilanz an ein Geschäftsjahr gebunden ist. Die Einzelbilanz hat keine Laufzeit.")}
 {klappe("Was kostet die Begleitung darüber hinaus?", "Die erste Erfassung ist enthalten. Darüber hinausgehende Begleitung rechnen wir mit 140 € je Stunde ab, nach Absprache und vorher benannt.")}
 {klappe("Rechnen Sie nach Mitarbeitenden ab?", "Nein. Die Stufe richtet sich nach dem Umfang der Bilanz, nicht nach der Zahl der Beschäftigten. Ein Haus mit vierzig Standorten ist aufwendiger als eines mit zweihundert Personen an einem Ort — danach sprechen wir.")}
@@ -647,7 +681,7 @@ def wissen():
     ) + f'''
 <section class="abschnitt einzugsfeld" style="padding-top:0">
   <div class="huelle">
-    <ul class="karte" style="list-style:none;padding:0;gap:0">
+    <ul class="fragen">
 {"".join(klappe(t, e(x)) for t, x in begriffe)}
     </ul>
   </div>
