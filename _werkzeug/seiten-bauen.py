@@ -308,7 +308,7 @@ def start():
 
     return f'''<section class="aufmacher">
   <div class="aufmacher__grund">
-    {bild("aufmacher", [1200, 1800, 2400], "Mann im Anzug an einem Schreibtisch, telefoniert und macht Notizen",
+    {bild("aufmacher", [1200, 1800, 2400], "Industriehalle mit einem Deckenkran über den Arbeitsbereichen",
           klasse="aufmacher__bildrahmen", groessen="100vw", laden="eager", rahmen=False).replace("<img", '<img class="aufmacher__bild"')}
   </div>
   <div class="aufmacher__dunkel" aria-hidden="true"></div>

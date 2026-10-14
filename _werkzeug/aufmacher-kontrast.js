@@ -16,10 +16,21 @@
 
    STOPPS muss mit .aufmacher__dunkel in stil.css uebereinstimmen. */
 
-const STOPPS = [[0,.34],[0.30,.18],[0.58,.46],[0.80,.66],[1,.80]];
+const STOPPS = [[0,.32],[0.28,.18],[0.55,.48],[0.78,.66],[1,.80]];
 
 (async () => {
   const imgEl = document.querySelector('.aufmacher__bild');
+
+  /* FALLE 3: Das Aufmacherbild traegt transform: scale(1.1). getBoundingClientRect
+     liefert dann den TRANSFORMIERTEN Kasten, waehrend object-fit:cover intern mit
+     dem LAYOUTKASTEN rechnet. Wer beides mischt, tastet die falschen Bildstellen ab.
+     Gemessen wurden dadurch 5,96:1, tatsaechlich waren es 3,78:1 — also die
+     Differenz zwischen bestanden und durchgefallen. Deshalb: abschalten, messen,
+     zuruecksetzen. */
+  const tf_vorher = imgEl.style.transform;
+  imgEl.style.transform = 'none';
+  void imgEl.offsetHeight;
+
   const quelle = imgEl.currentSrc || imgEl.src;
   const bm = await createImageBitmap(await (await fetch(quelle)).blob());
   const nw = bm.width, nh = bm.height;
@@ -68,6 +79,7 @@ const STOPPS = [[0,.34],[0.30,.18],[0.58,.46],[0.80,.66],[1,.80]];
             schlechtester: +schlimm.toFixed(2), ziel, bestanden: n > 0 && schlimm >= ziel};
   };
 
+  imgEl.style.transform = tf_vorher;
   console.table([
     messe(document.querySelector('.aufmacher h1'), 'Ueberschrift', 3.0),
     messe(document.querySelector('.aufmacher__neben p'), 'Vorspann', 4.5),
