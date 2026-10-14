@@ -13,7 +13,11 @@ Wurzel laeuft. Fuer GitHub Pages unter /Repo-Name/ hier den Pfad eintragen.
 from html import escape as e
 from pathlib import Path
 
-BASIS = ""
+# Basis-Pfad. Auf GitHub Pages liegt ein Projekt-Repo unter /<Repo-Name>/,
+# nicht auf der Wurzel. HIER steht der Repo-Name — die einzige Zeile, die
+# sich aendert, wenn das Repo anders heisst. Bei eigener Domain oder Vercel
+# wieder auf "" setzen und neu bauen.
+BASIS = "/Tonwert"
 HIER  = Path(__file__).resolve().parent.parent
 
 # ---------------------------------------------------------------------------
